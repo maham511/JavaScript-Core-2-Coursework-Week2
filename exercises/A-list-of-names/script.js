@@ -18,32 +18,15 @@ listOfNames(people);
 //Append all tags in #content div using appendChild
 
 
-//-----------1 h1 el created, inner text has name, appended to div
-//  let h1El = document.createElement("h1");
-//  h1El.innerText = 'Maha';
-//  content.appendChild(h1El);
-
-// console.log(content); //logs div with h1 inside!
-
-// //-----------1 h2 el created, inner text has job, appended to div
-//  let h2El = document.createElement("h2");
-//  h2El.innerText = 'Web Dev';
-//  content.appendChild(h2El);
-
-// console.log(content); //logs div with h2 inside!
-
-
-//Prints same Maha Web Dev 3 times
+//loops through people array, updates #content
 people.forEach (person => {
 
-  //  -----------1 h1 el created, inner text has name, appended to div
+  // h1 el created, inner text has corresponding name, appended to div
  let h1El = document.createElement("h1");
  h1El.innerText = person.name;
  content.appendChild(h1El);
 
-// //console.log(content); //logs div with h1 inside!
-
-// //-----------1 h2 el created, inner text has job, appended to div
+// h2 el created, inner text has job, appended to div
  let h2El = document.createElement("h2");
  h2El.innerText = person.job;
  content.appendChild(h2El);
