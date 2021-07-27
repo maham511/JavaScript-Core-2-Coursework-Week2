@@ -2,18 +2,19 @@ function todoList(todos) {
   // Write your code here...
   let contentDiv = document.getElementById("content"); //store div
   let list = document.createElement("ul"); //create and store ul
-  contentDiv.appendChild(list);
-  list.innerText = "Todo List"; //renders Todo List
+  contentDiv.appendChild(list); //append ul to div
+  list.innerText = "Todo List"; //renders Todo List for ul text
 
-  //loop for array
-  todos.forEach((element, index) => {
-    let listItem = document.createElement("li"); //create, store li
-    list.appendChild(listItem); //appends li for each todo
+  //loop for todos array
+  todos.forEach(element => {
+    let listItem = document.createElement("li"); //create, store html collection of li
+    list.appendChild(listItem); //appends li for each todo to ul
     listItem.innerText = element.todo; //renders correct object values in each li
-    listItem.style.textDecoration = "none";
+    listItem.style.textDecoration = "none"; //sets default text-decoration property to none for all li
 
+    //function to add/remove strikethrough on click, for each li
     let onClickStrikethrough = function () {
-      // listItem.style.color = "green";
+     //checks for current textdecoration value on click. If none, turns to strikethrough, and vice versa
       if (
         listItem.style.textDecoration === "none"
       ) {
@@ -22,7 +23,8 @@ function todoList(todos) {
         listItem.style.textDecoration = "none";
       }
     };
-    //Adds strikethrough on li2 if clicked on it
+
+    //Event listener added to each listItem li using click and callback function
     listItem.addEventListener("click", onClickStrikethrough);
   });
 
