@@ -20,12 +20,25 @@ function highlightWords(paragraph, colours) {
   select.id = "colour-select";
   select.style.margin = 10; //10px margin added to dropdown
 
+  //loop for option elements
    colours.forEach((colour) => {
      let option = document.createElement("option");
      select.appendChild(option); //all options appended to select
      option.value = colour; //sets value of each option elem to relevant colour item
      option.innerText = colour;
    });
+
+  //creates & stores words array from paragraph string  
+  let wordsArray = paragraph.split(' ');
+  //  console.log(wordsArray);
+
+  wordsArray.forEach((word) => {
+    let spanEl = document.createElement("span");
+    para.appendChild(spanEl); //all options appended to select
+    // option.value = colour; //sets value of each option elem to relevant colour item
+    spanEl.innerText = word;
+  });
+
 }
 
 const paragraph =
@@ -34,3 +47,6 @@ const paragraph =
 const colours = ["yellow", "green", "blue", "none"];
 
 highlightWords(paragraph, colours);
+// let wordsArray = paragraph.split(" ");
+// console.log(wordsArray);
+// console.log('hi');
