@@ -37,7 +37,26 @@ function highlightWords(paragraph, colours) {
     para.appendChild(spanEl); //all options appended to select
     // option.value = colour; //sets value of each option elem to relevant colour item
     spanEl.innerText = word;
+    spanEl.style.backgroundColor = 'transparent';
+
+    //EventListener for onclick change word bgrnd colour to selected dropdown. Removes colour if clicked again.
+    spanEl.addEventListener("click", function () {
+      if (spanEl.style.backgroundColor === 'transparent') {
+        spanEl.style.backgroundColor = select.value;
+      } //sets spanEl bg color to colour from dropdown
+      else {
+        spanEl.style.backgroundColor = "transparent";
+      }  
+    });
+
   });
+
+
+  // let onClickWord = function () {
+  //   //  if (select.value === colours){
+  //    spanEl.style.colour = 'green' ;
+  //    // }
+  // }
 
 }
 
