@@ -13,16 +13,22 @@ function todoList(todos) {
     listItem.style.textDecoration = "none"; //sets default text-decoration property to none for all li
 
     //function to add/remove strikethrough on click, for each li
-    let onClickStrikethrough = function () {
-     //checks for current textdecoration value on click. If none, turns to strikethrough, and vice versa
-      if (
-        listItem.style.textDecoration === "none"
-      ) {
-        listItem.style.textDecoration = "line-through";
-      } else if (listItem.style.textDecoration === "line-through") {
-        listItem.style.textDecoration = "none";
-      }
-    };
+    // let onClickStrikethrough = function () {
+    //   //checks for current textdecoration value on click. If none, turns to strikethrough, and vice versa
+    //   if (listItem.style.textDecoration === "none") {
+    //     listItem.style.textDecoration = "line-through";
+    //   } else if (listItem.style.textDecoration === "line-through") {
+    //     listItem.style.textDecoration = "none";
+    //   }
+    // };
+
+    //loops through colours array, creates, appends and updates option elements
+    colours.forEach((colour) => {
+      let option = document.createElement("option");
+      select.appendChild(option); //all options appended to select
+      option.value = colour; //sets value of each option elem to relevant colour item
+      option.innerText = colour;
+    });
 
     //Event listener added to each listItem li using click and callback function
     listItem.addEventListener("click", onClickStrikethrough);
